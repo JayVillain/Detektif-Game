@@ -14,6 +14,6 @@ const choices = {
   ],
 
   ending: [
-    { text: "Lanjut ke Ending", next: "ending.trueEnding", bg: "assets/img/bg_final.jpg", char: "assets/img/gracia.png" }
+    { text: "Lanjut ke Ending", next: "ending.trueEnding", bg: "assets/img/bg_final.png", char: "assets/img/gracia.png" }
   ]
 };
