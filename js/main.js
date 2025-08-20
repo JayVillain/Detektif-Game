@@ -1,49 +1,49 @@
-function showScene(path, nextChoices = []) {
-  let scene;
-  if (path.startsWith("chapter")) {
-    const [ch, sc] = path.split(".");
-    scene = story[ch][sc];
-  } else if (path.startsWith("ending")) {
-    const [_, sc] = path.split(".");
-    scene = ending[sc];
-  }
+const storyTextElement = document.getElementById('story-text');
+const choicesContainerElement = document.getElementById('choices-container');
+const backgroundElement = document.getElementById('background');
+const characterElement = document.getElementById('character');
 
-  // tampilkan teks
-  speakerBox.textContent = scene.speaker || "";
-  storyBox.textContent = scene.text || "";
+let currentStoryId = 'start';
 
-  // update gambar karakter & background
-  if (scene.char) charImg.src = scene.char;
-  if (scene.bg) bg.style.backgroundImage = `url('${scene.bg}')`;
-
-  // reset choices
-  choicesBox.innerHTML = "";
-
-  // kalau ada nextChoices manual (misalnya intro)
-  let availableChoices = nextChoices;
-
-  // kalau kosong, ambil sesuai chapter
-  if (availableChoices.length === 0) {
-    if (path === "chapter1.scene1") availableChoices = choices.chapter1;
-    else if (path.startsWith("chapter2")) availableChoices = choices.chapter2;
-    else if (path.startsWith("chapter3")) availableChoices = choices.chapter3;
-    else if (path.startsWith("chapter4")) availableChoices = choices.chapter4;
-    else availableChoices = [];
-  }
-
-  availableChoices.forEach(opt => {
-    const btn = document.createElement("button");
-    btn.textContent = opt.text;
-    btn.className = "choice-btn";
-    btn.onclick = () => showScene(opt.next);
-    choicesBox.appendChild(btn);
-  });
-
-  // ending khusus
-  if (path.startsWith("ending")) {
-    storyBox.innerHTML = scene.text + (scene.after || "");
-  }
+function startGame() {
+    showScene(currentStoryId);
 }
 
-// mulai game → intro + tombol
-showScene("chapter1.intro", choices.start);
+function showScene(sceneId) {
+    const scene = story.find(s => s.id === sceneId);
+    
+    // Perbarui teks cerita
+    storyTextElement.innerText = scene.text;
+
+    // Perbarui latar belakang
+    backgroundElement.style.backgroundImage = `url('assets/img/${scene.background}')`;
+
+    // Perbarui karakter
+    if (scene.character) {
+        characterElement.src = `assets/img/${scene.character}`;
+        characterElement.style.opacity = 1;
+    } else {
+        characterElement.style.opacity = 0;
+    }
+
+    // Hapus pilihan lama
+    while (choicesContainerElement.firstChild) {
+        choicesContainerElement.removeChild(choicesContainerElement.firstChild);
+    }
+
+    // Tambahkan pilihan baru
+    scene.choices.forEach(choice => {
+        const button = document.createElement('button');
+        button.innerText = choice.text;
+        button.classList.add('choice-button');
+        button.addEventListener('click', () => selectChoice(choice));
+        choicesContainerElement.appendChild(button);
+    });
+}
+
+function selectChoice(choice) {
+    currentStoryId = choice.next;
+    showScene(currentStoryId);
+}
+
+startGame();
