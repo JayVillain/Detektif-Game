@@ -37,5 +37,5 @@ function showScene(sceneObj, options = []) {
 
 // Start game
 showScene(story.chapter1.intro, [
-  { text: "Mulai Investigasi", next: "chapter1.scene1", char: "assets/img/nix.png", bg: "assets/img/bg_lab.jpg" }
+  { text: "Mulai Investigasi", next: "chapter1.scene1", char: "assets/img/nix.png", bg: "assets/img/bg_lab.png" }
 ]);
