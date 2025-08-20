@@ -2,6 +2,8 @@ const ending = {
   trueEnding: {
     speaker: "Narator",
     text: "Mesin waktu menyala. Zain menoleh terakhir kali: 'Terima kasih... meski jalan ini pahit, akhirnya aku bisa pulang. Pulang pada Gracia.'",
+    bg: "assets/img/bg_final.png",
+    char: "assets/img/zain.png",
     after: `
       <div style="text-align:center; margin-top:20px;">
         <img src="assets/img/gracia.png" style="max-height:300px;"><br>
