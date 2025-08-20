@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Kasus Laptop Profesor Nix</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kronos' Echo: Game Detektif</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div id="game-container">
-    <div id="background"></div>
-    <div id="character">
-      <img id="char-img" src="assets/img/player.png" alt="Character">
+
+    <div class="game-container">
+        <div id="background" class="background"></div>
+
+        <img id="character" class="character" src="" alt="Karakter">
+
+        <div class="dialogue-box">
+            <p id="story-text"></p>
+        </div>
+
+        <div id="choices-container" class="choices-container">
+            </div>
     </div>
-    <div id="textbox">
-      <div id="speaker"></div>
-      <div id="story"></div>
-      <div id="choices"></div>
-    </div>
-  </div>
-  <script src="js/story.js"></script>
-  <script src="js/choices.js"></script>
-  <script src="js/ending.js"></script>
-  <script src="js/main.js"></script>
+
+    <script src="js/story.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
