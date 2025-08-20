@@ -1,70 +1,89 @@
+/* Styling umum */
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background: #111;
-  color: #eee;
-  overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-#game-container {
-  width: 100%;
-  height: 100vh;
-  position: relative;
+.game-container {
+    width: 90%;
+    max-width: 1000px;
+    height: 80vh;
+    border: 2px solid #555;
+    position: relative;
+    overflow: hidden;
+    background-color: #000;
 }
 
-#background {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #000;
-  background-size: cover;
-  background-position: center;
-  z-index: 0;
+/* Styling Latar Belakang */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s ease-in-out;
+    opacity: 0.6;
 }
 
-#character {
-  position: absolute;
-  bottom: 150px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
+/* Styling Karakter */
+.character {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 70%;
+    object-fit: contain;
+    transition: opacity 0.5s ease-in-out;
 }
 
-#character img {
-  max-height: 400px;
+/* Styling Kotak Dialog */
+.dialogue-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 150px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    box-sizing: border-box;
+    border-top: 2px solid #555;
 }
 
-#textbox {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.7);
-  padding: 20px;
-  z-index: 2;
+#story-text {
+    margin: 0;
+    font-size: 1.2em;
+    line-height: 1.6;
 }
 
-#speaker {
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #ffcc00;
+/* Styling Pilihan Interaksi */
+.choices-container {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-#choices {
-  margin-top: 20px;
+.choice-button {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #777;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-.choice-btn {
-  display: block;
-  margin: 5px 0;
-  padding: 10px;
-  background: #444;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.choice-btn:hover {
-  background: #666;
+.choice-button:hover {
+    background-color: #555;
+    transform: translateY(-2px);
 }
