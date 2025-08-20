@@ -1,9 +1,3 @@
-const storyBox = document.getElementById("story");
-const speakerBox = document.getElementById("speaker");
-const choicesBox = document.getElementById("choices");
-const charImg = document.getElementById("char-img");
-const bg = document.getElementById("background");
-
 function showScene(path, nextChoices = []) {
   let scene;
   if (path.startsWith("chapter")) {
@@ -25,13 +19,17 @@ function showScene(path, nextChoices = []) {
   // reset choices
   choicesBox.innerHTML = "";
 
-  // tentukan pilihan berikutnya
-  let availableChoices;
-  if (path === "chapter1.scene1") availableChoices = choices.chapter1;
-  else if (path.startsWith("chapter2")) availableChoices = choices.chapter2;
-  else if (path.startsWith("chapter3")) availableChoices = choices.chapter3;
-  else if (path.startsWith("chapter4")) availableChoices = choices.chapter4;
-  else availableChoices = [];
+  // kalau ada nextChoices manual (misalnya intro)
+  let availableChoices = nextChoices;
+
+  // kalau kosong, ambil sesuai chapter
+  if (availableChoices.length === 0) {
+    if (path === "chapter1.scene1") availableChoices = choices.chapter1;
+    else if (path.startsWith("chapter2")) availableChoices = choices.chapter2;
+    else if (path.startsWith("chapter3")) availableChoices = choices.chapter3;
+    else if (path.startsWith("chapter4")) availableChoices = choices.chapter4;
+    else availableChoices = [];
+  }
 
   availableChoices.forEach(opt => {
     const btn = document.createElement("button");
@@ -47,5 +45,5 @@ function showScene(path, nextChoices = []) {
   }
 }
 
-// mulai game
+// mulai game → intro + tombol
 showScene("chapter1.intro", choices.start);
