@@ -1,0 +1,25 @@
+detective-game/
+│
+├── index.html              # Halaman utama game
+│
+├── css/
+│   └── style.css           # Styling UI (tema gelap, font, layout karakter)
+│
+├── js/
+│   ├── main.js             # Engine game (navigasi teks, pilihan, state)
+│   ├── story.js            # Narasi per chapter
+│   ├── choices.js          # Opsi interaksi
+│   └── ending.js           # Ending: munculkan Gracia + teks cinta
+│
+├── assets/
+│   └── img/
+│       ├── player.png      # Avatar pemain (detektif)
+│       ├── nix.png         # Profesor Nix
+│       ├── zain.png        # Profesor Zain
+│       ├── gracia.png      # Gracia (untuk ending)
+│       ├── bg_lab.jpg      # Background Lab
+│       ├── bg_perpus.jpg   # Background Perpustakaan
+│       ├── bg_taman.jpg    # Background Taman
+│       └── bg_final.jpg    # Background Ending (cahaya mesin waktu / suasana romantis)
+│
+└── README.md               # Catatan project (deskripsi & cara main)
