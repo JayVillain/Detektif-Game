@@ -38,7 +38,7 @@ body {
     justify-content: flex-end; /* Memindahkan konten ke bawah */
 }
 
-/* Area Latar Belakang (di belakang semua elemen lain) */
+/* Area Latar Belakang */
 #background {
     position: absolute;
     top: 0;
@@ -48,7 +48,7 @@ body {
     background-size: cover;
     background-position: center;
     transition: background-image 1s ease-in-out;
-    opacity: 0.7; /* Membuat latar belakang sedikit transparan agar tidak mengganggu */
+    opacity: 0.7;
     z-index: 1;
 }
 
@@ -65,17 +65,17 @@ body {
     z-index: 2;
 }
 
-/* Kotak Dialog yang Lebih Rapi */
+/* Kotak Dialog */
 .dialogue-box {
     position: relative;
-    width: 95%; /* Mengatur lebar */
-    height: 22vh; /* Mengatur tinggi */
+    width: 95%;
+    min-height: 150px;
     background-color: var(--dialogue-bg);
     padding: 25px 30px;
     box-sizing: border-box;
     border: 1px solid var(--border-color);
     border-radius: 10px;
-    margin: 0 auto 20px; /* Jarak dari bawah */
+    margin: 0 auto 20px;
     z-index: 3;
 }
 
@@ -83,8 +83,8 @@ body {
     margin: 0;
     font-size: 1.2em;
     line-height: 1.6;
-    height: 100%;
-    overflow-y: auto; /* Jika teks terlalu panjang, akan bisa di-scroll */
+    height: auto;
+    overflow-y: auto;
 }
 
 /* Pilihan Interaksi */
