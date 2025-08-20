@@ -1,27 +1,45 @@
-/* Styling umum */
+/* Palet Warna dan Font */
+:root {
+    --bg-color: #0d0d0d;
+    --text-color: #e0e0e0;
+    --dialogue-bg: rgba(25, 25, 25, 0.9);
+    --border-color: #333;
+    --accent-color: #00bcd4; /* Biru Cyan untuk highlight */
+    --button-bg: #1a1a1a;
+    --button-hover-bg: #2d2d2d;
+    --font-primary: 'Courier New', Courier, monospace;
+}
+
+/* Reset dan Styling Dasar */
 body {
-    font-family: 'Courier New', Courier, monospace;
-    background-color: #1a1a1a;
-    color: #f0f0f0;
+    font-family: var(--font-primary);
+    background-color: var(--bg-color);
+    color: var(--text-color);
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
 }
 
+/* Kontainer Utama Game */
 .game-container {
     width: 90%;
-    max-width: 1000px;
-    height: 80vh;
-    border: 2px solid #555;
+    max-width: 1200px;
+    height: 90vh;
+    border: 2px solid var(--border-color);
     position: relative;
     overflow: hidden;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     background-color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Memindahkan konten ke bawah */
 }
 
-/* Styling Latar Belakang */
-.background {
+/* Area Latar Belakang (di belakang semua elemen lain) */
+#background {
     position: absolute;
     top: 0;
     left: 0;
@@ -30,60 +48,76 @@ body {
     background-size: cover;
     background-position: center;
     transition: background-image 1s ease-in-out;
-    opacity: 0.6;
+    opacity: 0.7; /* Membuat latar belakang sedikit transparan agar tidak mengganggu */
+    z-index: 1;
 }
 
-/* Styling Karakter */
-.character {
+/* Area untuk Karakter */
+#character {
     position: absolute;
-    bottom: 0;
+    bottom: 25vh; /* Posisikan di atas kotak dialog */
     left: 50%;
     transform: translateX(-50%);
-    height: 70%;
+    height: 60%;
+    max-height: 500px;
     object-fit: contain;
     transition: opacity 0.5s ease-in-out;
+    z-index: 2;
 }
 
-/* Styling Kotak Dialog */
+/* Kotak Dialog yang Lebih Rapi */
 .dialogue-box {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    min-height: 150px;
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 20px;
+    position: relative;
+    width: 95%; /* Mengatur lebar */
+    height: 22vh; /* Mengatur tinggi */
+    background-color: var(--dialogue-bg);
+    padding: 25px 30px;
     box-sizing: border-box;
-    border-top: 2px solid #555;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    margin: 0 auto 20px; /* Jarak dari bawah */
+    z-index: 3;
 }
 
 #story-text {
     margin: 0;
     font-size: 1.2em;
     line-height: 1.6;
+    height: 100%;
+    overflow-y: auto; /* Jika teks terlalu panjang, akan bisa di-scroll */
 }
 
-/* Styling Pilihan Interaksi */
+/* Pilihan Interaksi */
 .choices-container {
     position: absolute;
-    bottom: 10px;
-    right: 20px;
+    bottom: 20px;
+    right: 30px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
+    z-index: 4;
 }
 
 .choice-button {
-    background-color: #333;
-    color: #fff;
-    border: 1px solid #777;
-    padding: 10px 20px;
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 12px 25px;
     cursor: pointer;
     font-size: 1em;
-    transition: background-color 0.3s, transform 0.2s;
+    font-family: var(--font-primary);
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    text-align: left;
+    min-width: 250px;
+    border-radius: 5px;
 }
 
 .choice-button:hover {
-    background-color: #555;
+    background-color: var(--button-hover-bg);
     transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.choice-button:active {
+    transform: translateY(0);
 }
