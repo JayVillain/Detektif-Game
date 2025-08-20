@@ -1,10 +1,21 @@
 const story = [
-    // --- Fase 1: Lab Fisika ---
+    // --- Adegan Baru: Perkenalan Pemain ---
+    {
+        id: 'intro_player',
+        text: 'Kamu adalah detektif yang terkenal dengan ketajaman analisisnya. Kasus ini, meskipun terlihat sepele, menarik perhatianmu. Kamu siap untuk memulai investigasi.',
+        background: 'bg_lab.jpg',
+        character: 'player.png', // <-- Menampilkan foto pemain di sini
+        choices: [
+            { text: 'Mulai penyelidikan di lab Profesor Nix.', next: 'start' }
+        ]
+    },
+
+    // --- Fase 1: Lab Fisika (Diperbarui) ---
     {
         id: 'start',
         text: 'Hari itu, kampus Universitas Arkanos mendadak kacau. Di antara hiruk-pikuk mahasiswa, beredar kabar mengejutkan: laptop Profesor Nix hilang dari laboratorium fisika. Laptop itu bukan sembarang laptop. Di dalamnya tersimpan hasil penelitian yang katanya bisa mengubah arah sejarah ilmu pengetahuan.',
         background: 'bg_lab.jpg',
-        character: null,
+        character: null, // <-- Tidak menampilkan karakter lain di adegan ini
         choices: [
             { text: 'Dekati Profesor Nix yang berdiri di dekat pintu lab.', next: 'nix_dialogue_1' }
         ]
@@ -178,11 +189,11 @@ const story = [
     },
     {
         id: 'ending_text',
-        text: '“Cinta melampaui waktu. Demi Gracia, Zain rela berjuang, mengorbankan segalanya, hingga akhirnya kembali pada pelukan yang ia rindukan.”',
+        text: '“Cinta melampaui waktu. Sebuah pengorbanan tak terhingga untuk memperbaiki kesalahan di masa lalu. Demi Gracia, Zain rela berjuang, mengorbankan segalanya, hingga akhirnya kembali pada pelukan yang ia rindukan.”',
         background: 'bg_final.jpg',
         character: null,
         choices: [
-            { text: 'Main lagi?', next: 'start' }
+            { text: 'Main lagi?', next: 'intro_player' }
         ]
     }
 ];
