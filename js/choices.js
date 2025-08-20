@@ -1,19 +1,29 @@
-// Pilihan di tiap chapter
+// =============================
+// Pilihan interaksi per chapter
+// =============================
 
 const choices = {
   start: [
-    { text: "Periksa Lab", next: "chapter2.lab", bg: "assets/img/bg_lab.jpg" },
-    { text: "Kembali ke Perpustakaan", next: "chapter2.perpus", bg: "assets/img/bg_perpus.jpg" },
-    { text: "Pergi ke Taman", next: "chapter2.taman", bg: "assets/img/bg_taman.jpg" },
-    { text: "Tanya Satpam Lagi", next: "chapter2.satpam", bg: "assets/img/bg_satpam.jpg" }
+    { text: "Mulai Investigasi", next: "chapter1.scene1" }
   ],
 
-  afterZain: [
-    { text: "Konfrontasi Profesor Nix", next: "chapter3.reveal", char: "assets/img/nix.png" },
-    { text: "Cari tahu tentang Zain", next: "chapter3.reveal", char: "assets/img/zain.png" }
+  chapter1: [
+    { text: "Periksa Lab", next: "chapter2.lab" },
+    { text: "Pergi ke Perpustakaan", next: "chapter2.perpus" },
+    { text: "Pergi ke Taman", next: "chapter2.taman" },
+    { text: "Tanya Satpam", next: "chapter2.satpam" }
   ],
 
-  ending: [
-    { text: "Lanjut ke Ending", next: "ending.trueEnding", bg: "assets/img/bg_final.png", char: "assets/img/gracia.png" }
+  chapter2: [
+    { text: "Konfrontasi Profesor Nix", next: "chapter3.reveal" }
+  ],
+
+  chapter3: [
+    { text: "Dengarkan Nix", next: "chapter4.truth" },
+    { text: "Temui Zain", next: "chapter4.zain" }
+  ],
+
+  chapter4: [
+    { text: "Lanjut ke Ending", next: "ending.trueEnding" }
   ]
 };
